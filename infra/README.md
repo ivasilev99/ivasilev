@@ -1,14 +1,14 @@
-# Hosting: AWS Milan (eu-south-1)
+# Hosting: AWS Frankfurt (eu-central-1)
 
-The site is static, so the setup is a private S3 bucket in **Milan (`eu-south-1`)** behind
-CloudFront. Milan is the AWS region closest to Bulgaria (≈29 ms median from Sofia). CloudFront also
+The site is static, so the setup is a private S3 bucket in **Frankfurt (`eu-central-1`)**
+behind CloudFront. Frankfurt is about 29 ms from Sofia. CloudFront also
 has an edge location in Sofia, so visitors in Bulgaria get pages from a server in the same city.
 
 ```
 visitor ──HTTPS──▶ CloudFront (edge in Sofia, HTTP/2+3, security headers)
                        │  Origin Access Control (signed requests)
                        ▼
-                 S3 bucket, eu-south-1, private
+                 S3 bucket, eu-central-1, private
 ```
 
 Expected cost: a few cents a month (S3 storage of ~5 MB plus CloudFront requests; the CloudFront
@@ -17,7 +17,6 @@ free tier covers 1 TB and 10 M requests a month).
 ## Before you start
 
 1. The account and the `cv-site` profile come from `~/repos/offcial/ivasilev-aws-org` (steps 1–4).
-   That stack also switches on the Milan region, which is opt-in.
 2. `aws sso login --profile cv-site`
 
 ## Create the infrastructure (once)

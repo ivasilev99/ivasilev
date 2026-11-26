@@ -1,7 +1,7 @@
 variable "region" {
   type        = string
-  description = "Where the files live. Milan has the lowest latency to Bulgaria of all AWS regions (opt-in region: enabled by ivasilev-aws-org)."
-  default     = "eu-south-1"
+  description = "Where the files live. Frankfurt: enabled by default, ~29 ms from Sofia."
+  default     = "eu-central-1"
 }
 
 variable "aws_profile" {

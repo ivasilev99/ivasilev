@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Upload the site to S3 (eu-south-1) and refresh CloudFront.
+# Upload the site to S3 (eu-central-1) and refresh CloudFront.
 # Usage: infra/deploy.sh            (run `tofu apply` in infra/ first)
 set -euo pipefail
 
