@@ -11,7 +11,7 @@ const PREVIEWS = JSON.parse(readFileSync(join(HERE, '..', 'assets', 'certs', 'pr
 const EMAIL = 'ivan.st.vasilev@gmail.com';
 const LINKEDIN = 'https://www.linkedin.com/in/ivan-vasilev-6b41721a4';
 const CV = 'assets/cv/Ivan-Vasilev-CV.pdf';
-const cvBtn = (R) => `<a class="btn btn-ghost" href="${R}${CV}" download="Ivan-Vasilev-CV.pdf" type="application/pdf">${ico('i-download')}Download CV</a>`;
+const cvBtn = (R) => `<a class="btn btn-ghost" href="${R}${CV}" download="Ivan Vasilev CV.pdf" type="application/pdf">${ico('i-download')}Download CV</a>`;
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const ico = (id, cls = '') => `<svg class="ico${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#${id}"/></svg>`;
