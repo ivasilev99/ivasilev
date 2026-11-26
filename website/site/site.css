@@ -313,6 +313,9 @@ h2 { font-size: clamp(1.75rem, 1.2rem + 1.7vw, 2.6rem); line-height: 1.1; font-w
 .dg-kio { grid-template-areas: "usb lg ks" "ok tm xr"; }
 .dg-vpn { grid-template-areas: "us fw ov" "nt nt lan"; }
 .dg-vpn .dg-note { white-space: normal; text-align: left; justify-self: stretch; border-radius: 14px; }
+.dg-dmc { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-areas: "cl rt cf" "sh sh sh" "nt nt nt"; row-gap: 40px; }
+.dg-dmc [data-node="sh"] { grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 12px; border-radius: 14px; border: 1px dashed var(--line-2); background: var(--surface); }
+.dg-dmc .dg-note { justify-self: center; margin-top: -16px; }
 .dg-dns { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-areas: "ph wg pi" "nt up bl"; row-gap: 40px; }
 .dg-dns .dg-note { white-space: normal; text-align: left; justify-self: stretch; border-radius: 14px; }
 
@@ -334,6 +337,8 @@ h2 { font-size: clamp(1.75rem, 1.2rem + 1.7vw, 2.6rem); line-height: 1.1; font-w
   .dg-vbr { grid-template-columns: 1fr 1fr; grid-template-areas: "vb ck" "al zb" "nt nt"; row-gap: 36px; }
   .dg-kio { grid-template-columns: 1fr 1fr; grid-template-areas: "usb lg" "xr ks" "tm ok"; row-gap: 36px; }
   .dg-vpn { grid-template-columns: 1fr 1fr; grid-template-areas: "us fw" "lan ov" "nt nt"; row-gap: 36px; }
+  .dg-dmc { grid-template-columns: 1fr 1fr; grid-template-areas: "cl nt" "rt cf" "sh sh"; row-gap: 36px; }
+  .dg-dmc .dg-note { justify-self: stretch; margin-top: 0; white-space: normal; text-align: left; border-radius: 14px; }
   .dg-dns { grid-template-columns: 1fr 1fr; grid-template-areas: "ph wg" "bl pi" "nt up"; row-gap: 36px; }
   .dg .n { flex-direction: column; align-items: flex-start; gap: 8px; }
   .dg-mon [data-node="pm"], .dg-mdb [data-node="ms"] { flex-direction: row; align-items: center; }

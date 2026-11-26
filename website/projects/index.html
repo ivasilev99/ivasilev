@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Projects: Ivan Vasilev</title>
-<meta name="description" content="MongoDB sharding, a database move to AWS, AI-assisted AMI rollouts, monitoring, patching, Veeam backup monitoring, a Linux kiosk, OpenVPN, Pi-hole ad blocking over WireGuard and home-lab projects by Ivan Vasilev.">
+<meta name="description" content="MongoDB sharding, a Docker Compose MongoDB test cluster, a database move to AWS, AI-assisted AMI rollouts, monitoring, patching, Veeam backup monitoring, a Linux kiosk, OpenVPN, Pi-hole ad blocking over WireGuard and home-lab projects by Ivan Vasilev.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Projects: Ivan Vasilev">
-<meta property="og:description" content="MongoDB sharding, a database move to AWS, AI-assisted AMI rollouts, monitoring, patching, Veeam backup monitoring, a Linux kiosk, OpenVPN, Pi-hole ad blocking over WireGuard and home-lab projects by Ivan Vasilev.">
+<meta property="og:description" content="MongoDB sharding, a Docker Compose MongoDB test cluster, a database move to AWS, AI-assisted AMI rollouts, monitoring, patching, Veeam backup monitoring, a Linux kiosk, OpenVPN, Pi-hole ad blocking over WireGuard and home-lab projects by Ivan Vasilev.">
 <meta property="og:image" content="../share.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0a0e0c">
@@ -104,7 +104,7 @@
 <main id="main">
   <header class="page-head wrap">
     <h1>Projects</h1>
-    <p class="lead">Six from PROS, one from Radioactive, two from Helpdesk Bulgaria and three from my home lab. Each page shows how the system fits together and how I built it.</p>
+    <p class="lead">Seven from PROS, one from Radioactive, two from Helpdesk Bulgaria and three from my home lab. Each page shows how the system fits together and how I built it.</p>
   </header>
 
   <section class="wrap page-body" aria-label="All projects">
@@ -119,6 +119,11 @@
         <span class="chip chip-lg"><img src="../assets/icons/mongodb.svg" alt=""></span>
         <div class="proj-main"><h2>Second MongoDB shard, x.509 auth</h2><p>Designed and added a second production shard from scratch, then balanced 5M+ documents onto it with zero downtime.</p></div>
         <span class="proj-tool">MongoDB</span><span class="where where-pros" title="Company"><svg class="ico" aria-hidden="true"><use href="#i-building"/></svg>PROS</span><svg class="ico go-ico" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </a></li>
+      <li><a class="proj" href="mongodb-sharded-cluster-docker/">
+        <span class="chip chip-lg"><img src="../assets/icons/docker.svg" alt=""></span>
+        <div class="proj-main"><h2>MongoDB sharded cluster in Docker Compose</h2><p>A full sharded MongoDB cluster with auth and users, brought up with one command for testing.</p></div>
+        <span class="proj-tool">Docker Compose</span><span class="where where-pros" title="Company"><svg class="ico" aria-hidden="true"><use href="#i-building"/></svg>PROS</span><svg class="ico go-ico" aria-hidden="true"><use href="#i-arrow"/></svg>
       </a></li>
       <li><a class="proj" href="21tb-migration-to-aws/">
         <span class="chip chip-lg"><img src="../assets/icons/aws-s3.svg" alt=""></span>

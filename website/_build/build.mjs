@@ -119,6 +119,21 @@ const DIAGRAMS = {
     node(R, 'al', 'Alerts', 'Failed or stuck jobs', '#i-chat'),
     `<ul class="dg-states" style="grid-area:nt" aria-label="Job states tracked"><li class="st-ok">Success</li><li class="st-run">Running</li><li class="st-warn">Warning</li><li class="st-fail">Failed</li></ul>`,
   ]),
+  dmc: (R) => `<div class="dg dg-dmc" data-edges="cl>rt,rt>sh,rt>cf" data-edges-narrow="cl>rt,rt>cf,rt>sh">
+          <svg class="wires" aria-hidden="true"></svg>
+          ${node(R, 'cl', 'Test client', 'mongosh, app users', '#i-monitor')}
+          <div class="grp" data-node="rt" style="grid-area:rt">
+            ${node(R, 'm1', 'mongos 1', 'Router', 'mongodb', 'n-hub', false)}
+            ${node(R, 'm2', 'mongos 2', 'Router', 'mongodb', 'n-hub', false)}
+          </div>
+          ${node(R, 'cf', 'Config servers', 'Replica set of 3', '#i-settings')}
+          <div class="grp" data-node="sh" style="grid-area:sh">
+            ${node(R, 's1', 'Shard 1', 'Shard server', '#i-db', '', false)}
+            ${node(R, 's2', 'Shard 2', 'Shard server', '#i-db', '', false)}
+            ${node(R, 's3', 'Shard 3', 'Shard server', '#i-db', '', false)}
+          </div>
+          <p class="dg-note" style="grid-area:nt">${ico('i-key')}Keyfile auth, users from init scripts</p>
+        </div>`,
   dns: (R) => dg('dg-dns', 'ph>wg,wg>pi,pi>bl,pi>up', 'ph>wg,wg>pi,pi>bl,pi>up', [
     node(R, 'ph', 'Phone', 'Any network', '#i-phone'),
     node(R, 'wg', 'WireGuard', 'Encrypted tunnel home', 'wireguard'),
@@ -165,6 +180,26 @@ const PROJECTS = [
       'Added the replica set through mongos and let the balancer migrate chunks onto it.',
     ],
     result: 'Traffic now splits roughly 1,500 / 1,000 queries per second across two shards, and the cluster has room to grow.',
+  },
+  {
+    slug: 'mongodb-sharded-cluster-docker', title: 'MongoDB sharded cluster in Docker Compose', where: 'PROS', icon: 'docker', tool: 'Docker Compose',
+    short: 'A full sharded MongoDB cluster with auth and users, brought up with one command for testing.',
+    lead: 'I built a complete MongoDB sharded cluster in Docker Compose: three config servers, three shard servers and two mongos routers, with authentication and users set up by init scripts. One command brings it up for testing.',
+    stack: [['Docker Compose', 'docker'], ['MongoDB', 'mongodb'], ['Init scripts', 'bash'], ['Keyfile auth', '#i-key']],
+    diagram: 'dmc', caption: 'Production shape, on one machine',
+    problem: 'Testing changes on the real sharded clusters was risky, and a single local mongod does not behave like a sharded cluster with authentication.',
+    steps: [
+      'One docker-compose.yml defines all eight containers: three config servers, three shard servers and two mongos routers, on their own network with named volumes.',
+      'The config servers form a replica set of three, and each shard server runs as its own shard.',
+      'A shared keyfile turns on internal authentication, so the members only trust each other.',
+      'Init scripts wait until every node is healthy, initiate the replica sets and add the shards through mongos.',
+      'The scripts create an admin user, then test users with only the roles they need, such as readWrite on one database or read-only.',
+      'Sharding is enabled on a test database and a collection is sharded on a hashed key, so the data spreads over all three shards.',
+      'Two mongos routers sit in front, so a client can lose one and keep working.',
+      'docker compose down -v wipes everything, and the next up builds a clean cluster from scratch.',
+    ],
+    note: ['Why a keyfile', 'With authentication on, cluster members must also prove who they are to each other. A shared keyfile does that in a test setup; production uses x.509 certificates.'],
+    result: 'A production-shaped cluster comes up in minutes for testing changes, upgrades and failovers, and is thrown away afterwards.',
   },
   {
     slug: '21tb-migration-to-aws', title: '21 TB database move to AWS', where: 'PROS', icon: 'aws-s3', tool: 'Amazon S3',
@@ -347,7 +382,7 @@ const JOBS = [
       'Write Bash and Python tools that take repetitive work off the team.',
       'Build Langflow agents that open pull requests and Jira tickets and drive AWS image rollouts, always with a human review.',
     ],
-    projects: ['ai-ami-rollout', 'mongodb-second-shard', '21tb-migration-to-aws', 'mysql-sla-slo', 'monitoring-and-on-call', 'fleet-patching'],
+    projects: ['ai-ami-rollout', 'mongodb-second-shard', 'mongodb-sharded-cluster-docker', '21tb-migration-to-aws', 'mysql-sla-slo', 'monitoring-and-on-call', 'fleet-patching'],
   },
   {
     company: 'Radioactive', full: 'Radioactive EOOD', role: 'System Administrator', when: 'Jan to Aug 2023', place: 'Sofia',
@@ -596,7 +631,7 @@ ${SKILLS.map(([k, v]) => `      <div><dt>${k}</dt><dd>${v}</dd></div>`).join('\n
   <section class="section wrap" aria-labelledby="more-h">
     <h2 id="more-h" class="sr">More about my work</h2>
     <ul class="go">
-      <li><a href="projects/"><b>Projects</b><span>Twelve projects and how I built each one</span>${ico('i-arrow')}</a></li>
+      <li><a href="projects/"><b>Projects</b><span>Thirteen projects and how I built each one</span>${ico('i-arrow')}</a></li>
       <li><a href="experience/"><b>Experience</b><span>5+ years of experience, and what I owned in each role</span>${ico('i-arrow')}</a></li>
       <li><a href="education/"><b>Education</b><span>Certificates, school and what I am learning now</span>${ico('i-arrow')}</a></li>
     </ul>
@@ -617,7 +652,7 @@ function projectsIndex() {
         <div class="proj-main"><h2>${esc(p.title)}</h2><p>${esc(p.short)}</p></div>
         <span class="proj-tool">${p.tool}</span>${whereTag(p.where)}${ico('i-arrow', 'go-ico')}
       </a></li>`).join('\n');
-  const body = pageHead('Projects', 'Six from PROS, one from Radioactive, two from Helpdesk Bulgaria and three from my home lab. Each page shows how the system fits together and how I built it.') + `
+  const body = pageHead('Projects', 'Seven from PROS, one from Radioactive, two from Helpdesk Bulgaria and three from my home lab. Each page shows how the system fits together and how I built it.') + `
   <section class="wrap page-body" aria-label="All projects">
     <div class="proj-head" aria-hidden="true"><span>Project</span><span>Main tool</span><span>Company</span></div>
     <ol class="projects">
@@ -625,7 +660,7 @@ ${rows}
     </ol>
   </section>
 `;
-  return page({ R, active: 'projects', title: 'Projects: Ivan Vasilev', desc: 'MongoDB sharding, a database move to AWS, AI-assisted AMI rollouts, monitoring, patching, Veeam backup monitoring, a Linux kiosk, OpenVPN, Pi-hole ad blocking over WireGuard and home-lab projects by Ivan Vasilev.', body });
+  return page({ R, active: 'projects', title: 'Projects: Ivan Vasilev', desc: 'MongoDB sharding, a Docker Compose MongoDB test cluster, a database move to AWS, AI-assisted AMI rollouts, monitoring, patching, Veeam backup monitoring, a Linux kiosk, OpenVPN, Pi-hole ad blocking over WireGuard and home-lab projects by Ivan Vasilev.', body });
 }
 
 /* ---------- Project detail ---------- */
