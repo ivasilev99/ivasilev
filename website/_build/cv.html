@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ivan Vasilev CV</title>
+<meta name="author" content="Ivan Vasilev">
+<meta name="description" content="Ivan Vasilev, Site Reliability Engineer II. Sofia, Bulgaria.">
+<!-- Source of assets/cv/Ivan-Vasilev-CV.pdf. Render with: _build/cv.sh -->
+<script>if (/[?&]public\b/.test(location.search)) document.documentElement.classList.add('public');</script>
+<style>
+@font-face { font-family: "Schibsted Grotesk"; src: url("../site/fonts/schibsted-grotesk-latin.woff2") format("woff2"); font-weight: 400 900; }
+@font-face { font-family: "JetBrains Mono"; src: url("../site/fonts/jetbrains-mono-latin.woff2") format("woff2"); font-weight: 100 800; }
+
+:root {
+  --sans: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  /* dark tokens (site default theme) */
+  --d-bg: #0a0e0c; --d-surface: #111714; --d-line: #222c27; --d-line-2: #33413a;
+  --d-ink: #e6ece9; --d-ink-2: #c5d0cb; --d-muted: #95a39c; --d-accent: #5fe3a1; --d-accent-ink: #04241a;
+  /* light tokens (site light theme) */
+  --bg: #f5f7f6; --surface: #ffffff; --surface-2: #eef2f0; --line: #dde5e1; --line-2: #c6d2cc;
+  --ink: #0d1512; --ink-2: #26332d; --muted: #52605a; --accent: #0b7a4b;
+  --accent-soft: rgba(11, 122, 75, .09); --accent-line: rgba(11, 122, 75, .45);
+}
+@page { size: A4; margin: 0; }
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: #7d8a84; font: 400 10.6px/1.5 var(--sans); color: var(--ink-2); -webkit-font-smoothing: antialiased; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+h1, h2, h3, p, ul, ol { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+svg { display: block; }
+.ico { width: 13px; height: 13px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ico .fill { fill: currentColor; stroke: none; }
+
+.page { width: 210mm; height: 297mm; margin: 0 auto; background: var(--surface); display: grid; grid-template-rows: auto 1fr; overflow: hidden; position: relative; }
+@media screen { body { padding: 24px 0; } .page { box-shadow: 0 20px 60px -20px rgba(0,0,0,.5); } }
+
+/* Header: the site's dark console */
+.top { background: var(--d-bg); color: var(--d-ink-2); padding: 20px 22px 20px 30px; display: grid; grid-template-columns: 1fr 226px; gap: 22px; align-items: center; position: relative; }
+.top::after { content: ""; position: absolute; inset: auto 0 0 0; height: 1px; background: var(--d-line); }
+.kicker { display: flex; align-items: center; gap: 7px; font-size: 10px; color: var(--d-muted); margin-bottom: 7px; }
+.kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--d-accent); box-shadow: 0 0 0 3px rgba(95,227,161,.18); }
+.who { display: flex; align-items: center; gap: 20px; }
+.who img { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; flex: none; box-shadow: 0 0 0 2px var(--d-bg), 0 0 0 3.5px rgba(95,227,161,.55); }
+h1 { font-size: 32px; line-height: 1; font-weight: 600; letter-spacing: -.035em; color: var(--d-ink); }
+.role { margin-top: 5px; font-size: 12.6px; font-weight: 500; color: var(--d-accent); letter-spacing: -.005em; }
+.lead { margin-top: 8px; font-size: 10.4px; line-height: 1.5; color: var(--d-ink-2); }
+
+.card { background: var(--d-surface); border: 1px solid var(--d-line); border-radius: 14px; padding: 4px 14px; }
+.card li { display: flex; align-items: center; gap: 9px; padding: 6px 0; border-bottom: 1px dashed var(--d-line); font-size: 10.6px; color: var(--d-ink); }
+.card li:last-child { border-bottom: 0; }
+.card .ico { color: var(--d-accent); width: 12.5px; height: 12.5px; }
+.card a { border-bottom: 1px solid rgba(95,227,161,.45); }
+.public .only-full { display: none !important; }
+
+/* Body */
+.body { display: grid; grid-template-columns: 1fr 226px; min-height: 0; }
+.main { padding: 18px 24px 16px 30px; display: flex; flex-direction: column; }
+.side { background: var(--bg); border-left: 1px solid var(--line); padding: 18px 20px 16px 18px; }
+
+h2 { display: flex; align-items: center; gap: 10px; font-size: 15.5px; line-height: 1.1; font-weight: 600; letter-spacing: -.02em; color: var(--ink); margin-bottom: 11px; }
+h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+h2 + * { margin-top: 0; }
+section + section { margin-top: 15px; }
+
+/* Experience, like experience/ on the site */
+.job { display: grid; grid-template-columns: 1fr auto; column-gap: 12px; position: relative; padding-left: 15px; }
+.job + .job { margin-top: 11px; }
+.job::before { content: ""; position: absolute; left: 0; top: 6px; width: 7px; height: 7px; border-radius: 50%; border: 1.2px solid var(--line-2); background: var(--surface); }
+.job.now::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.job:not(:last-child)::after { content: ""; position: absolute; left: 3.6px; top: 17px; bottom: -8px; width: 1px; background: var(--line); }
+.job h3 { font-size: 13.4px; line-height: 1.25; font-weight: 600; letter-spacing: -.015em; color: var(--ink); }
+.job .co { font-size: 11px; font-weight: 500; color: var(--accent); margin-top: 1px; }
+.job .co span { color: var(--muted); font-weight: 400; }
+.when { font-family: var(--mono); font-size: 9.3px; color: var(--muted); white-space: nowrap; padding-top: 3px; letter-spacing: -.01em; }
+.now .when { color: var(--accent); }
+.job ul { grid-column: 1 / -1; margin-top: 5px; }
+.job li { position: relative; padding-left: 13px; line-height: 1.5; }
+.job li + li { margin-top: 2.5px; }
+.job li::before { content: "–"; position: absolute; left: 0; color: var(--line-2); }
+.job li b { color: var(--ink); font-weight: 600; }
+
+/* Projects, like the site's project tags */
+.proj { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.proj li { border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px 8px; background: var(--surface); }
+.proj .t { display: flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 600; color: var(--ink); line-height: 1.25; letter-spacing: -.01em; }
+.proj .t .go { margin-left: auto; color: var(--muted); width: 10px; height: 10px; }
+.chip { display: inline-grid; place-items: center; flex: none; width: 20px; height: 20px; border-radius: 50%; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+.chip img { width: 12px; height: 12px; object-fit: contain; }
+.chip .ico { width: 11px; height: 11px; color: var(--accent); }
+.proj p { margin-top: 4px; font-size: 9.9px; line-height: 1.45; color: var(--muted); }
+
+/* Sidebar */
+.grp { font-family: var(--mono); font-size: 8.4px; letter-spacing: .02em; color: var(--muted); margin: 6px 0 4px; }
+.grp:first-of-type { margin-top: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 3.5px; }
+.tags li { height: 17.5px; display: inline-flex; align-items: center; padding: 0 7.5px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--surface); font-size: 9.4px; color: var(--ink-2); line-height: 1; }
+.tags.soft li { border-style: dashed; background: transparent; color: var(--muted); }
+
+.edu li + li { margin-top: 7px; }
+.edu b { display: block; font-size: 11.4px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+.edu span { display: block; color: var(--muted); font-size: 10px; line-height: 1.4; }
+
+.list li { display: flex; align-items: center; gap: 7px; font-size: 10.4px; color: var(--ink-2); line-height: 1.3; }
+.list li + li { margin-top: 4px; }
+.list .chip { width: 19px; height: 19px; }
+.list .chip img { width: 11px; height: 11px; }
+.list a, a.u { color: var(--accent); border-bottom: 1px solid var(--accent-line); }
+.list .sep { color: var(--line-2); }
+.lang li { justify-content: space-between; border-bottom: 1px dashed var(--line); padding-bottom: 5px; }
+.lang li span { font-family: var(--mono); font-size: 9px; color: var(--muted); }
+
+.site { display: flex; align-items: center; gap: 10px; margin-top: 12px; padding: 9px 14px 9px 10px; border-radius: 12px; background: var(--d-bg); color: var(--d-ink); }
+.site svg.mk { width: 24px; height: 24px; flex: none; }
+.site b { display: block; font-size: 10.6px; font-weight: 600; }
+.site span { display: block; font-size: 9px; color: var(--d-muted); }
+.site em { margin-left: auto; font-style: normal; font-family: var(--mono); font-size: 9px; color: var(--d-accent); }
+.site .ico { color: var(--d-accent); width: 12px; height: 12px; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect width="12" height="20" x="6" y="2" rx="2"/><path d="M12 18h.01"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="3"/><path d="M8 11v5M8 8v.01M12 16v-5M16 16v-3a2 2 0 0 0-4 0"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01M6 18h.01"/></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></symbol>
+  <symbol id="mark" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#5fe3a1"/><path d="M20 29v16M29 29l7.5 16L44 29" fill="none" stroke="#04241a" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="19" r="4.4" fill="#04241a"/></symbol>
+</svg>
+
+<main class="page">
+  <header class="top">
+    <div class="who">
+      <img src="../assets/img/ivan.png" alt="Ivan Vasilev">
+      <div>
+        <p class="kicker"><i class="dot"></i>Hi, I'm Ivan. I make systems reliable and keep them that way.</p>
+        <h1>Ivan Vasilev</h1>
+        <p class="role">Site Reliability Engineer II</p>
+        <p class="lead">SRE with 5+ years managing infrastructure automation, monitoring and database reliability across on-prem and hybrid environments: IBM infrastructure, Linux, MongoDB/MySQL and AWS. If I have to do something twice, I automate it.</p>
+      </div>
+    </div>
+    <ul class="card">
+      <li><svg class="ico"><use href="#i-pin"/></svg>Sofia, Bulgaria</li>
+      <li class="only-full"><svg class="ico"><use href="#i-phone"/></svg>+359 878 60 2616</li>
+      <li><svg class="ico"><use href="#i-mail"/></svg><a href="mailto:ivan.st.vasilev@gmail.com">ivan.st.vasilev@gmail.com</a></li>
+      <li><svg class="ico"><use href="#i-in"/></svg><a href="https://www.linkedin.com/in/ivan-vasilev-6b41721a4">LinkedIn profile</a></li>
+      <li><svg class="ico"><use href="#i-globe"/></svg><a href="https://d2fn1sca9d9k1w.cloudfront.net/">Website, projects &amp; certificates</a></li>
+    </ul>
+  </header>
+
+  <div class="body">
+    <div class="main">
+      <section>
+        <h2>Experience</h2>
+        <div class="job now">
+          <div><h3>Site Reliability Engineer II</h3><p class="co">PROS Bulgaria EOOD <span>· Sofia</span></p></div>
+          <p class="when">Sep 2023 to now</p>
+          <ul>
+            <li><b>Own database reliability</b>: sharded MongoDB (mongos, x.509) and MySQL clusters behind ProxySQL; capacity, scaling, backups and incident response.</li>
+            <li><b>Patch and deploy</b>: OS and application patching, version deployments and configuration across <span style="white-space:nowrap">on-prem</span> and hybrid IBM and Linux fleets with Foreman, Puppet and Ansible.</li>
+            <li><b>Script to optimize operations</b>: Bash/Python tooling that automates repetitive tasks and speeds up patching, deployments and routine maintenance.</li>
+            <li><b>Run monitoring, alerts and on-call</b>: Prometheus (Node/Proc exporters, Pushgateway), Grafana, Loki, Wazuh and PagerDuty, with custom metrics and tuned alerts.</li>
+            <li><b>Operate the delivery path</b> with GoCD and GitHub Actions, Nginx/HAProxy traffic layers, and AWS foundations (EC2, S3, IAM/SSO, VPCs, CloudWatch).</li>
+            <li><b>Build AI agents</b> (Langflow/Python) that generate API endpoints, open Git branches/PRs and Jira tickets, and drive AWS image deployments, always with human review.</li>
+          </ul>
+        </div>
+        <div class="job">
+          <div><h3>System Administrator</h3><p class="co">Radioactive EOOD <span>· Sofia</span></p></div>
+          <p class="when">Jan 2023 to Aug 2023</p>
+          <ul>
+            <li>Administered Linux and Windows servers (patching, backups, access management) with Nagios and Zabbix monitoring and Bash/Python scripting.</li>
+            <li>Set up secure connectivity with WireGuard/OpenVPN, VLAN segmentation and Cisco/pfSense networking.</li>
+          </ul>
+        </div>
+        <div class="job">
+          <div><h3>System Administrator</h3><p class="co">Helpdesk Bulgaria <span>· Sofia</span></p></div>
+          <p class="when">Dec 2021 to Dec 2022</p>
+          <ul><li>Delivered L2 support for client servers, workstations and networks.</li></ul>
+        </div>
+        <div class="job">
+          <div><h3>R&amp;D Hardware Engineer</h3><p class="co">Behr-Hella Thermocontrol EOOD <span>· Sofia</span></p></div>
+          <p class="when">Feb 2021 to Nov 2021</p>
+          <ul><li>Embedded hardware development and testing for automotive climate-control products.</li></ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Selected projects</h2>
+        <ul class="proj">
+          <li><a class="t" href="https://d2fn1sca9d9k1w.cloudfront.net/projects/mongodb-second-shard/"><i class="chip"><img src="../assets/icons/mongodb.svg" alt=""></i>MongoDB scale-out with x.509<svg class="ico go"><use href="#i-ext"/></svg></a>
+            <p>Second production shard from scratch (5M+ docs, zero downtime); rebalanced 2,500 QPS from one shard to a ~1,500/1,000 split.</p></li>
+          <li><a class="t" href="https://d2fn1sca9d9k1w.cloudfront.net/projects/21tb-migration-to-aws/"><i class="chip"><img src="../assets/icons/aws-s3.svg" alt=""></i>21 TB database move to AWS<svg class="ico go"><use href="#i-ext"/></svg></a>
+            <p>Bash pipeline streaming files into tar archives via S3, preserving hard-link metadata, and restoring on EC2.</p></li>
+          <li><a class="t" href="https://d2fn1sca9d9k1w.cloudfront.net/projects/mysql-sla-slo/"><i class="chip"><img src="../assets/icons/mysql.svg" alt=""></i>MySQL SLA/SLO monitoring<svg class="ico go"><use href="#i-ext"/></svg></a>
+            <p>Uptime SLA/SLO with custom Bash metric collectors scraped by Prometheus node exporter, visualised in Grafana.</p></li>
+          <li><a class="t" href="https://d2fn1sca9d9k1w.cloudfront.net/projects/ai-ami-rollout/"><i class="chip"><img src="../assets/icons/aws.svg" alt=""></i>AI-assisted AWS deployment<svg class="ico go"><use href="#i-ext"/></svg></a>
+            <p>Agent that triggers EC2 Image Builder pipelines to produce AMIs and starts controlled Auto Scaling Group instance refreshes.</p></li>
+          <li><a class="t" href="https://d2fn1sca9d9k1w.cloudfront.net/projects/spring-boot-ci-cd/"><i class="chip"><img src="../assets/icons/github-actions.svg" alt=""></i>Automated backend CI/CD<svg class="ico go"><use href="#i-ext"/></svg></a>
+            <p>GitHub Actions on self-hosted runners gating Spring Boot releases; SSH/SCP delivery with systemd restarts and JAR rollback.</p></li>
+          <li><a class="t" href="https://d2fn1sca9d9k1w.cloudfront.net/projects/proxmox-home-lab/"><i class="chip"><svg class="ico"><use href="#i-server"/></svg></i>Proxmox/Kubernetes home lab<svg class="ico go"><use href="#i-ext"/></svg></a>
+            <p>Kubernetes VMs behind pfSense with VLANs, HAProxy and ACME certificates; Wazuh, Vaultwarden, Prometheus and Grafana.</p></li>
+        </ul>
+      </section>
+      <a class="site" href="https://d2fn1sca9d9k1w.cloudfront.net/"><svg class="mk"><use href="#mark"/></svg><div><b>See the portfolio</b><span>Projects, diagrams and certificates in more depth</span></div><em>d2fn1sca9d9k1w.cloudfront.net</em><svg class="ico"><use href="#i-ext"/></svg></a>
+    </div>
+
+    <aside class="side">
+      <section>
+        <h2>Skills</h2>
+        <p class="grp">cloud</p>
+        <ul class="tags"><li>AWS EC2</li><li>S3</li><li>Image Builder</li><li>ASG</li><li>IAM/SSO</li><li>CloudWatch</li></ul>
+        <p class="grp">automation &amp; ci/cd</p>
+        <ul class="tags"><li>Puppet</li><li>Ansible</li><li>Foreman</li><li>GitHub Actions</li><li>GoCD</li><li>Langflow</li></ul>
+        <p class="grp">observability</p>
+        <ul class="tags"><li>Prometheus</li><li>Grafana</li><li>Loki</li><li>Wazuh</li><li>PagerDuty</li><li>Nagios</li><li>Zabbix</li></ul>
+        <p class="grp">databases</p>
+        <ul class="tags"><li>MongoDB</li><li>MySQL</li><li>ProxySQL</li></ul>
+        <p class="grp">systems &amp; code</p>
+        <ul class="tags"><li>Linux (RHEL/Debian)</li><li>Windows</li><li>Bash</li><li>Python</li><li>C/C++</li></ul>
+        <p class="grp">network &amp; web</p>
+        <ul class="tags"><li>Nginx</li><li>HAProxy</li><li>Apache</li><li>Caddy</li><li>Tomcat</li><li>WireGuard</li><li>VLANs</li><li>pfSense</li></ul>
+        <p class="grp">also familiar with</p>
+        <ul class="tags soft"><li>Kubernetes</li><li>Proxmox</li><li>Azure</li><li>VMware vSphere</li><li>Graylog</li><li>Bacula</li></ul>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <ul class="edu">
+          <li><b>Technical University of Sofia</b><span>Two years of study</span></li>
+          <li><b>TUES</b><span>Technology School Electronic Systems, associated with TU Sofia</span></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Training</h2>
+        <ul class="list">
+          <li><i class="chip"><img src="../assets/icons/aws.svg" alt=""></i><a href="https://d2fn1sca9d9k1w.cloudfront.net/assets/certs/architecting-on-aws.pdf">Architecting on AWS</a></li>
+          <li><i class="chip"><img src="../assets/icons/aws.svg" alt=""></i><a href="https://d2fn1sca9d9k1w.cloudfront.net/assets/certs/aws-technical-essentials.pdf">AWS Technical Essentials</a></li>
+          <li><i class="chip"><img src="../assets/icons/aws.svg" alt=""></i><a href="https://d2fn1sca9d9k1w.cloudfront.net/assets/certs/aws-security-fundamentals.pdf">AWS Security Fundamentals</a></li>
+          <li><i class="chip"><img src="../assets/icons/fortinet.svg" alt=""></i><span>Fortinet <a href="https://d2fn1sca9d9k1w.cloudfront.net/assets/certs/fortinet-nse-1.pdf">NSE 1</a> <span class="sep">·</span> <a href="https://d2fn1sca9d9k1w.cloudfront.net/assets/certs/fortinet-nse-2.pdf">NSE 2</a> <span class="sep">·</span> <a href="https://d2fn1sca9d9k1w.cloudfront.net/assets/certs/fortinet-nse-3.pdf">NSE 3</a></span></li>
+          <li><i class="chip"><img src="../assets/icons/cisco.svg" alt=""></i><a href="https://d2fn1sca9d9k1w.cloudfront.net/assets/certs/cisco-learning-transcript.pdf">Cisco Learning Transcript</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Languages</h2>
+        <ul class="list lang">
+          <li>Bulgarian<span>native</span></li>
+          <li>English<span>professional</span></li>
+        </ul>
+      </section>
+
+    </aside>
+  </div>
+</main>
+</body>
+</html>
