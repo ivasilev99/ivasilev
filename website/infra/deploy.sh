@@ -5,7 +5,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 INFRA="$ROOT/infra"
-PROFILE="${AWS_PROFILE:-cv-site}"
+PROFILE="${AWS_PROFILE:-ivasilev}"
 
 cd "$INFRA"
 BUCKET="$(tofu output -raw bucket)"

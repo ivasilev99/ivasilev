@@ -16,8 +16,8 @@ free tier covers 1 TB and 10 M requests a month).
 
 ## Before you start
 
-1. The account and the `cv-site` profile come from `~/repos/offcial/ivasilev-aws-org` (steps 1–4).
-2. `aws sso login --profile cv-site`
+1. The `ivasilev` account and AWS profile come from `~/repos/offcial/ivasilev-aws-org` (steps 1–4).
+2. `aws sso login --profile ivasilev`
 
 ## Create the infrastructure (once)
 
@@ -61,7 +61,7 @@ The script:
 | `s3.tf` | Private bucket `ivasilev-cv-site-<account-id>` with encryption and public access blocked. Only this CloudFront distribution may read it. |
 | `cloudfront.tf` | Distribution, Origin Access Control, a function that maps `/projects/` to `/projects/index.html` and redirects `/projects` to `/projects/`, managed security headers, and unknown paths answered with a 404 status. |
 | `acm.tf` | Certificate in `us-east-1` (a CloudFront requirement), only when `domain` is set. |
-| `deploy.sh` | Build + upload + invalidate. Uses `AWS_PROFILE` if set, otherwise `cv-site`. |
+| `deploy.sh` | Build + upload + invalidate. Uses `AWS_PROFILE` if set, otherwise `ivasilev`. |
 
 State is local (`website/infra/terraform.tfstate`, git-ignored). Don't lose it; or move it to an S3 backend
 later.

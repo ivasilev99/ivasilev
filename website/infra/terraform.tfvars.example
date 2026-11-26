@@ -1,4 +1,4 @@
 # cp terraform.tfvars.example terraform.tfvars   (git-ignored)
 # domain      = "ivasilev.dev"
-# aws_profile = "cv-site"
+# aws_profile = "ivasilev"
 # region      = "eu-central-1"

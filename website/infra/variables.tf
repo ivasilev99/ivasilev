@@ -6,7 +6,7 @@ variable "region" {
 
 variable "aws_profile" {
   type    = string
-  default = "cv-site"
+  default = "ivasilev"
 }
 
 variable "domain" {
