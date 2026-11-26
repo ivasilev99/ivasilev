@@ -570,7 +570,7 @@ ${SKILLS.map(([k, v]) => `      <div><dt>${k}</dt><dd>${v}</dd></div>`).join('\n
     <h2 id="more-h" class="sr">More about my work</h2>
     <ul class="go">
       <li><a href="projects/"><b>Projects</b><span>Eleven projects and how I built each one</span>${ico('i-arrow')}</a></li>
-      <li><a href="experience/"><b>Experience</b><span>Four roles since 2021, and what I owned in each</span>${ico('i-arrow')}</a></li>
+      <li><a href="experience/"><b>Experience</b><span>5+ years of experience, and what I owned in each role</span>${ico('i-arrow')}</a></li>
       <li><a href="education/"><b>Education</b><span>Certificates, school and what I am learning now</span>${ico('i-arrow')}</a></li>
     </ul>
   </section>
@@ -679,7 +679,7 @@ ${j.duties.map((d) => `            <li>${esc(d)}</li>`).join('\n')}
           </div>` : ''}
         </div>
       </li>`).join('\n');
-  const body = pageHead('Experience', 'Four roles since 2021, from automotive hardware to site reliability. Projects link to how I built them.', `
+  const body = pageHead('Experience', '5+ years of experience, from automotive hardware to site reliability. Projects link to how I built them.', `
     <ul class="facts">
       <li><b>5M+</b> documents on a new shard</li>
       <li><b>2,500 qps</b> split across two shards</li>
