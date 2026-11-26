@@ -119,6 +119,14 @@ const DIAGRAMS = {
     node(R, 'al', 'Alerts', 'Failed or stuck jobs', '#i-chat'),
     `<ul class="dg-states" style="grid-area:nt" aria-label="Job states tracked"><li class="st-ok">Success</li><li class="st-run">Running</li><li class="st-warn">Warning</li><li class="st-fail">Failed</li></ul>`,
   ]),
+  dns: (R) => dg('dg-dns', 'ph>wg,wg>pi,pi>bl,pi>up', 'ph>wg,wg>pi,pi>bl,pi>up', [
+    node(R, 'ph', 'Phone', 'Any network', '#i-phone'),
+    node(R, 'wg', 'WireGuard', 'Encrypted tunnel home', 'wireguard'),
+    node(R, 'pi', 'Pi-hole', 'Answers every DNS query', 'pihole', 'n-hub'),
+    node(R, 'bl', 'Blocklists', 'Ads, trackers, malware', '#i-ban'),
+    node(R, 'up', 'Upstream DNS', 'Allowed names only', '#i-globe'),
+    `<p class="dg-note" style="grid-area:nt">${ico('i-key')}Split tunnel: only DNS goes home</p>`,
+  ]),
 };
 
 /* ---------- Content ---------- */
@@ -304,6 +312,25 @@ const PROJECTS = [
       'Wazuh watches security events. Prometheus and Grafana watch everything else.',
     ],
     result: 'A safe place to break things and learn how to fix them.',
+  },
+  {
+    slug: 'pihole-wireguard-ad-blocking', title: 'Pi-hole ad blocking over WireGuard', where: 'Lab', icon: 'pihole', tool: 'Pi-hole',
+    short: 'Ads and trackers blocked on my phone on any network, through a WireGuard tunnel to my own DNS.',
+    lead: 'My phone sends its DNS through a WireGuard tunnel to Pi-hole at home, so ads and trackers are blocked on mobile data and public Wi-Fi, in apps as well as in the browser.',
+    stack: [['Pi-hole', 'pihole'], ['WireGuard', 'wireguard'], ['Blocklists', '#i-ban'], ['Linux', 'linux-tux']],
+    diagram: 'dns', caption: 'Ads stop at my DNS, wherever I am',
+    problem: 'Ads and trackers followed my phone onto every network, and a browser blocker does nothing for the ads inside apps.',
+    steps: [
+      'Installed Pi-hole on Linux in my home lab and made it the DNS server.',
+      'Added blocklists for ads, trackers and malware domains, and update them on a schedule.',
+      'Kept a short allowlist for the domains some apps need, so blocking does not break logins or payments.',
+      'Set up a WireGuard server with its own key pair for each device, and opened only its UDP port on the router.',
+      'Gave the phone a split tunnel: only DNS goes home, so the rest of the traffic keeps its normal speed.',
+      'Set the tunnel to stay on, so the phone never falls back to the network\'s own DNS.',
+      'The Pi-hole dashboard shows every query, what was blocked and which device asked.',
+    ],
+    note: ['Why DNS', 'Blocking at DNS stops an ad before it loads, in every app, with no blocker on the phone. A blocked name gets an empty answer, so nothing is downloaded.'],
+    result: 'No ads or trackers on my phone on any network, and pages load faster on less mobile data.',
   },
 ];
 const bySlug = Object.fromEntries(PROJECTS.map((p) => [p.slug, p]));
@@ -569,7 +596,7 @@ ${SKILLS.map(([k, v]) => `      <div><dt>${k}</dt><dd>${v}</dd></div>`).join('\n
   <section class="section wrap" aria-labelledby="more-h">
     <h2 id="more-h" class="sr">More about my work</h2>
     <ul class="go">
-      <li><a href="projects/"><b>Projects</b><span>Eleven projects and how I built each one</span>${ico('i-arrow')}</a></li>
+      <li><a href="projects/"><b>Projects</b><span>Twelve projects and how I built each one</span>${ico('i-arrow')}</a></li>
       <li><a href="experience/"><b>Experience</b><span>5+ years of experience, and what I owned in each role</span>${ico('i-arrow')}</a></li>
       <li><a href="education/"><b>Education</b><span>Certificates, school and what I am learning now</span>${ico('i-arrow')}</a></li>
     </ul>
@@ -590,7 +617,7 @@ function projectsIndex() {
         <div class="proj-main"><h2>${esc(p.title)}</h2><p>${esc(p.short)}</p></div>
         <span class="proj-tool">${p.tool}</span>${whereTag(p.where)}${ico('i-arrow', 'go-ico')}
       </a></li>`).join('\n');
-  const body = pageHead('Projects', 'Six from PROS, one from Radioactive, two from Helpdesk Bulgaria and two from my home lab. Each page shows how the system fits together and how I built it.') + `
+  const body = pageHead('Projects', 'Six from PROS, one from Radioactive, two from Helpdesk Bulgaria and three from my home lab. Each page shows how the system fits together and how I built it.') + `
   <section class="wrap page-body" aria-label="All projects">
     <div class="proj-head" aria-hidden="true"><span>Project</span><span>Main tool</span><span>Company</span></div>
     <ol class="projects">
@@ -598,7 +625,7 @@ ${rows}
     </ol>
   </section>
 `;
-  return page({ R, active: 'projects', title: 'Projects: Ivan Vasilev', desc: 'MongoDB sharding, a database move to AWS, AI-assisted AMI rollouts, monitoring, patching, Veeam backup monitoring, a Linux kiosk, OpenVPN and home-lab projects by Ivan Vasilev.', body });
+  return page({ R, active: 'projects', title: 'Projects: Ivan Vasilev', desc: 'MongoDB sharding, a database move to AWS, AI-assisted AMI rollouts, monitoring, patching, Veeam backup monitoring, a Linux kiosk, OpenVPN, Pi-hole ad blocking over WireGuard and home-lab projects by Ivan Vasilev.', body });
 }
 
 /* ---------- Project detail ---------- */

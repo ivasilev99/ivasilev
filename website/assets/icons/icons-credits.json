@@ -407,5 +407,29 @@
     "url": "https://simpleicons.org",
     "trademark": true,
     "markUrl": "https://www.veeam.com/"
+  },
+  {
+    "file": "pihole.svg",
+    "icon": "simple-icons:pihole",
+    "name": "Pi-hole",
+    "kind": "colour",
+    "source": "simple-icons",
+    "author": "Simple Icons contributors",
+    "licence": "CC0-1.0",
+    "url": "https://simpleicons.org",
+    "trademark": true,
+    "markUrl": "https://pi-hole.net/"
+  },
+  {
+    "file": "wireguard.svg",
+    "icon": "simple-icons:wireguard",
+    "name": "WireGuard",
+    "kind": "colour",
+    "source": "simple-icons",
+    "author": "Simple Icons contributors",
+    "licence": "CC0-1.0",
+    "url": "https://simpleicons.org",
+    "trademark": true,
+    "markUrl": "https://www.wireguard.com/"
   }
 ]
