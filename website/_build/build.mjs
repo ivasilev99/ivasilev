@@ -498,7 +498,7 @@ function about() {
         <div><dt>${ico('i-chat')}Speaks</dt><dd>Bulgarian, English</dd></div>
         <div><dt>${ico('i-server')}Works at</dt><dd>PROS, since 2023</dd></div>
         <div><dt>${ico('i-book')}Learning</dt><dd>AWS and Kubernetes</dd></div>
-        <div><dt>${ico('i-ski')}Off the clock</dt><dd>Skiing, skating, driving</dd></div>
+        <div><dt>${ico('i-ski')}Off the clock</dt><dd>Skiing, ice skating, driving</dd></div>
       </dl>
     </figure>
   </section>
