@@ -496,28 +496,6 @@ function about() {
         <div><dt>${ico('i-book')}Learning</dt><dd>AWS and Kubernetes</dd></div>
         <div><dt>${ico('i-ski')}Off the clock</dt><dd>Skiing, skating, driving</dd></div>
       </dl>
-      <button class="play-btn" type="button" aria-controls="sp-player" aria-pressed="false" aria-label="Play songs by The Weeknd">
-        <span class="np-art"><img src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/6f/bc/e6/6fbce6c4-c38c-72d8-4fd0-66cfff32f679/20UMGIM12176.rgb.jpg/100x100bb.jpg" width="44" height="44" alt=""><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></span>
-        <span class="np-txt"><small class="np-s">On repeat</small><b class="np-t">The Weeknd</b></span>
-        <span class="pi">${ico('i-play', 'ico-fill')}</span>
-      </button>
-      <div class="me-ask" role="dialog" aria-modal="false" aria-labelledby="ask-h" hidden>
-        <p id="ask-h">${ico('i-vol')}Play music through your speakers?</p>
-        <div><button class="btn btn-accent btn-sm" type="button" data-ask="yes">Yes, play</button><button class="btn btn-ghost btn-sm" type="button" data-ask="no">No</button></div>
-      </div>
-      <div class="me-player" id="sp-player"><div>
-        <ol class="mp-list" aria-label="Songs">
-          <li><button class="mp-track" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/19/d6/60/19d660ff-e3a9-8377-15a3-ce4b28e89cac/mzaf_18422426156481158187.plus.aac.p.m4a"><img src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/6f/bc/e6/6fbce6c4-c38c-72d8-4fd0-66cfff32f679/20UMGIM12176.rgb.jpg/100x100bb.jpg" width="40" height="40" alt="" loading="lazy"><span><b>Blinding Lights</b><small>After Hours</small></span><span class="mp-st" aria-hidden="true"><span class="eq"><i></i><i></i><i></i><i></i></span>${ico('i-play', 'ico-fill')}</span></button></li>
-          <li><button class="mp-track" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/11/71/d6/1171d6ad-3c96-e027-2af6-58028426588c/mzaf_15137631797407745471.plus.aac.p.m4a"><img src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/b5/92/bb/b592bb72-52e3-e756-9b26-9f56d08f47ab/16UMGIM67864.rgb.jpg/100x100bb.jpg" width="40" height="40" alt="" loading="lazy"><span><b>Starboy</b><small>Starboy, with Daft Punk</small></span><span class="mp-st" aria-hidden="true"><span class="eq"><i></i><i></i><i></i><i></i></span>${ico('i-play', 'ico-fill')}</span></button></li>
-          <li><button class="mp-track" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/db/af/b3/dbafb30f-149d-a1a5-d213-7ca5f4e38478/mzaf_12355254277297753434.plus.aac.p.m4a"><img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/13/fd/a3/13fda38d-fc63-ddc3-1cf2-c09251adc532/25UMGIM09489.rgb.jpg/100x100bb.jpg" width="40" height="40" alt="" loading="lazy"><span><b>Timeless</b><small>Hurry Up Tomorrow, with Playboi Carti</small></span><span class="mp-st" aria-hidden="true"><span class="eq"><i></i><i></i><i></i><i></i></span>${ico('i-play', 'ico-fill')}</span></button></li>
-        </ol>
-        <div class="mp-bar">
-          <span class="mp-prog" aria-hidden="true"><i></i></span>
-          <span class="mp-time">0:00</span>
-          <button class="mp-mute" type="button" aria-pressed="false" aria-label="Mute">${ico('i-vol')}</button>
-        </div>
-        <p class="mp-note">30-second previews from <a href="https://music.apple.com/us/artist/the-weeknd/479756766" target="_blank" rel="noopener">Apple Music${ico('i-ext')}</a></p>
-      </div></div>
     </figure>
   </section>
 
