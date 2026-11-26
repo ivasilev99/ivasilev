@@ -20,3 +20,9 @@ assets/icons/demo/
 assets/starter.html
 assets/system.css
 assets/system.js
+
+# OpenTofu state and local vars
+infra/.terraform/
+infra/*.tfstate
+infra/*.tfstate.*
+infra/terraform.tfvars
