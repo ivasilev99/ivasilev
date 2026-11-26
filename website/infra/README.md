@@ -22,7 +22,7 @@ free tier covers 1 TB and 10 M requests a month).
 ## Create the infrastructure (once)
 
 ```bash
-cd infra
+cd website/infra
 cp terraform.tfvars.example terraform.tfvars   # optional: set domain
 tofu init
 tofu apply
@@ -42,14 +42,14 @@ Without a domain, the site is live at the `url` output (`https://dxxxx.cloudfron
 ## Publish the site
 
 ```bash
-./infra/deploy.sh
+./website/infra/deploy.sh      # from the repo root
 ```
 
 The script:
 
 1. rebuilds the pages (`node _build/build.mjs`);
-2. copies only the site files to a temporary folder (git-tracked files, minus `_build/` and
-   `infra/`);
+2. copies only the site files to a temporary folder (git-tracked files under `website/`,
+   minus `_build/` and `infra/`);
 3. syncs them to S3 with `--delete`. Images, fonts and PDFs are cached for a week; HTML, CSS and JS
    for 5 minutes;
 4. invalidates CloudFront, so the change is visible within a minute.
@@ -63,5 +63,5 @@ The script:
 | `acm.tf` | Certificate in `us-east-1` (a CloudFront requirement), only when `domain` is set. |
 | `deploy.sh` | Build + upload + invalidate. Uses `AWS_PROFILE` if set, otherwise `cv-site`. |
 
-State is local (`infra/terraform.tfstate`, git-ignored). Don't lose it; or move it to an S3 backend
+State is local (`website/infra/terraform.tfstate`, git-ignored). Don't lose it; or move it to an S3 backend
 later.

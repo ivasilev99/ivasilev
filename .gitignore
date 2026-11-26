@@ -4,25 +4,25 @@
 .taste-skill/
 shots/
 
-# Design-library files copied into assets/ that the site never loads
-assets/backgrounds/
-assets/components/
-assets/diagrams/
-assets/effects/
-assets/layout/
-assets/moments/
-assets/motion/
-assets/objects/
-assets/photos/
-assets/scenes/
-assets/ui/
-assets/icons/demo/
-assets/starter.html
-assets/system.css
-assets/system.js
+# Design-library files copied into website/assets/ that the site never loads
+website/assets/backgrounds/
+website/assets/components/
+website/assets/diagrams/
+website/assets/effects/
+website/assets/layout/
+website/assets/moments/
+website/assets/motion/
+website/assets/objects/
+website/assets/photos/
+website/assets/scenes/
+website/assets/ui/
+website/assets/icons/demo/
+website/assets/starter.html
+website/assets/system.css
+website/assets/system.js
 
 # OpenTofu state and local vars
-infra/.terraform/
-infra/*.tfstate
-infra/*.tfstate.*
-infra/terraform.tfvars
+website/infra/.terraform/
+website/infra/*.tfstate
+website/infra/*.tfstate.*
+website/infra/terraform.tfvars
