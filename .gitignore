@@ -1,0 +1,22 @@
+.DS_Store
+
+# Design-tool scratch (checks, Chrome profile) and screenshots
+.taste-skill/
+shots/
+
+# Design-library files copied into assets/ that the site never loads
+assets/backgrounds/
+assets/components/
+assets/diagrams/
+assets/effects/
+assets/layout/
+assets/moments/
+assets/motion/
+assets/objects/
+assets/photos/
+assets/scenes/
+assets/ui/
+assets/icons/demo/
+assets/starter.html
+assets/system.css
+assets/system.js
